@@ -28,6 +28,5 @@ document.addEventListener("DOMContentLoaded", function() {
       setTimeout(function() {
         document.body.removeChild(popup);
       }, 2000);
-      alert("Hello, World!");
     }
   });
