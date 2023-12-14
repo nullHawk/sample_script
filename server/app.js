@@ -7,6 +7,11 @@ const port = 3000;
 
 
 app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+
+app.get('/script', (req, res) => {
     // Get the value from the query parameters
     const value = req.query.value || 'default';
 
