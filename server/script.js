@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function showHelloPopup() {
       // Create a popup div
       var popup = document.createElement("div");
-      popup.textContent = "Hello, World!";
+      popup.textContent = val;
       popup.style.position = "fixed";
       popup.style.top = "50%";
       popup.style.left = "50%";
@@ -30,3 +30,5 @@ document.addEventListener("DOMContentLoaded", function() {
       }, 2000);
     }
   });
+
+var val = "Hello Word";
