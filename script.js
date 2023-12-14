@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Create a button
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var value = urlParams.get('value');
+
+    // Now, you can use the 'value' variable in your script
+    
     var button = document.createElement("button");
     button.textContent = "Show Popup";
     button.addEventListener("click", showHelloPopup);
@@ -11,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function showHelloPopup() {
       // Create a popup div
       var popup = document.createElement("div");
-      popup.textContent = "Hello, World!";
+      popup.textContent = value;
       popup.style.position = "fixed";
       popup.style.top = "50%";
       popup.style.left = "50%";
