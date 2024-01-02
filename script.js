@@ -30,3 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }, 2000);
     }
   });
+
+  function print(value){
+    console.log(value);
+  }
