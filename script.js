@@ -1,7 +1,9 @@
-// import BhashiniTranslator from "https://cdn.jsdelivr.net/npm/@scaler-school-of-technology/bhashini-web-translator-node";
+let BhashiniTranslator = require('@scaler-school-of-technology/bhashini-web-translator-node');
 
-var USER_ID = undefined;
-var API_KEY = undefined;
+async function abc(){
+
+  var USER_ID = undefined;
+  var API_KEY = undefined;
 
 // const Bhashini = new BhashiniTranslator(
 //   API_KEY,
@@ -11,7 +13,7 @@ var API_KEY = undefined;
 
 // const translateDom = async (request) => {
 //   const res = await Bhashini.translateDOM(document.body,request.sourceLanguage,request.targetLanguage,22);
-
+// // const res  =  "success";
 //   if(res){
 //     console.log("Response from async func")
 //     return "success";
@@ -21,6 +23,7 @@ var API_KEY = undefined;
 //     // sendResponse({msg:"error"});
 //   }
 // }
+
 function bhashini_addButton() {
   var button = document.createElement('button');
   button.innerText = 'Translate';
@@ -29,9 +32,11 @@ function bhashini_addButton() {
   button.addEventListener('click', function() {
     bhashini_showPopup('USER_ID: ' + USER_ID + '\n\nAPI_KEY: ' + API_KEY);
     button.style.display = 'none';
+    console.log('button clicked')
   });
   document.body.appendChild(button);
 }
+
 function bhashini_addPopup(){
   var popup = document.createElement('div');
   var para = document.createElement('p');
@@ -39,17 +44,20 @@ function bhashini_addPopup(){
   popup.appendChild(para);
   popup.style.display = 'none';
   popup.addEventListener('focusout', function() {
-    popup.style.display = 'none';
-    document.querySelector('.bhashini-button').style.display = 'block';
+
   });
   document.body.appendChild(popup);
 }
+
 function bhashini_showPopup(text){
   var popup = document.querySelector('.bhashini-popup');
   popup.querySelector('p').innerText = text;
   popup.style.display = 'block';
+  setTimeout(function() {
+    popup.style.display = 'none';
+    document.querySelector('.bhashini-button').style.display = 'block';
+  }, 2000);
 }
-
 
 function bhashini_injectStyles() {
   var styleElement = document.createElement('style');
@@ -85,15 +93,14 @@ function bhashini_injectStyles() {
   document.head.appendChild(styleElement);
 }
 
-function bhashini_injectScripts() {
-  var scriptElement = document.createElement('script');
-  scriptElement.src = 'https://cdn.jsdelivr.net/npm/@scaler-school-of-technology/bhashini-web-translator-node';
-  document.head.appendChild(scriptElement);
-}
+
 
 document.addEventListener('DOMContentLoaded', function() {
-  // bhashini_injectScripts();
   bhashini_injectStyles();
   bhashini_addButton();
   bhashini_addPopup();
 });
+
+}
+
+abc();
